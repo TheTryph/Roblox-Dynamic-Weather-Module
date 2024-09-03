@@ -28,7 +28,7 @@ jobs:
         with:
           repo_token: '${{ secrets.GITHUB_TOKEN }}'
           prerelease: false
-          title: "release ${{ github.ref_name }}" 
+          title: "stable release"
           automatic_release_tag: "latest"
           files: |
             LICENSE.md

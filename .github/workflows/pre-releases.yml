@@ -18,7 +18,7 @@
                 lfs: true
                 fetch-depth: 0
 
-                
+
             - uses: ok-nick/setup-aftman@v0.4.2
             - run: "aftman install"
             - run: "rojo build -o weathermanager.rbxm"
@@ -27,7 +27,7 @@
             - uses: "marvinpinto/action-automatic-releases@latest"
               with:
                 repo_token: "${{ secrets.GITHUB_TOKEN }}"
-                automatic_release_tag: "latest"
+                automatic_release_tag: "experimental"
                 prerelease: true
                 title: "Development Module Build"
                 files: |
