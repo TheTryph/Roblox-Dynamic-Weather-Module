@@ -1,0 +1,14 @@
+{
+    "className": "Lighting",
+    "properties": {
+        "Technology": "Future",
+        "Ambient": {"Color3": [0.25,0.25,0.25]},
+        "OutdoorAmbient": [0.25,0.25,0.25],
+        "ShadowSoftness": 0.2,
+        "Brightness": 3,
+        "EnvironmentDiffuseScale": 1,
+        "EnvironmentSpecularScale": 1,
+        "GlobalShadows": true,
+        "ClockTime": 13.5
+    }
+}

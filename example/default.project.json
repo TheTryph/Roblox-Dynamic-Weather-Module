@@ -1,0 +1,47 @@
+{
+    "name": "WeatherTestPlace",
+    "tree":{
+         "$className": "DataModel",
+         "ServerScriptService": {
+            
+            "Server": {
+                "$path": "server"
+            }
+         },
+
+         "ReplicatedStorage": {
+            "WeatherModule": {
+                "$path": "../src"
+            },
+            "CloudEvent": {
+                "$className": "RemoteEvent"
+            }
+         },
+
+         "StarterPlayer": {
+            "StarterPlayerScripts": {
+                "Client":{
+                    "$path": "client"
+                }
+            }
+         },
+
+         "Workspace": {
+            "Terrain": {
+                "$path": "Terrain.rbxm"
+            },
+            "$properties": {
+                "GlobalWind": [0.1,0,0]
+            }
+         },
+         "Lighting": {
+            "$path": "lighting"
+         },
+
+         "MaterialService": {
+            "$properties": {
+                "Use2022Materials": true
+            }
+         }
+    }
+}

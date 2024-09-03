@@ -1,0 +1,5 @@
+timeScaleDivisor = 1
+CloudsHeight = 200
+
+["Debug"]
+destroyItemsOutsideBounds = false
