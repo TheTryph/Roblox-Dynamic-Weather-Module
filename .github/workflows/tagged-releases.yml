@@ -2,7 +2,7 @@ name: 'tagged-release'
 
 on:
   push:
-    
+
 
 jobs:
   gh_tagged_release:
@@ -25,6 +25,7 @@ jobs:
           repo_token: '${{ secrets.GITHUB_TOKEN }}'
           prerelease: false
           title: "release"
+          automatic_release_tag: "latest"
           files: |
             LICENSE.md
             module.rbxm
