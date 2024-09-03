@@ -79,7 +79,7 @@ local CloudTypes : {GroupCloudDescription} = {
 
 
 local CloudDescription = {
-	["NormalCloud"] = function(cloud)
+	["NormalCloud"] = function()
 
 	end,
 	["RainCloud"] = function(cloud)
@@ -94,7 +94,7 @@ local CloudDescription = {
 
 function checkIfPartInBounds(part)
 	local parts = workspace:GetPartBoundsInBox(CFrame.new(0,0,0), Vector3.new(7000, 5000, 7000))
-	for i,v in pairs(parts) do
+	for _,v in pairs(parts) do
 		if v == part then
 			return true
 		end
@@ -104,7 +104,8 @@ end
 
 function Weather.new()
 	local self = setmetatable({}, Weather)
-	self.CloudsFolder = Instance.new('Folder', workspace)
+	self.CloudsFolder = Instance.new('Folder')
+	self.CloudsFolder.Parent = workspace
 	self.CloudsFolder.Name = "Clouds"
 	Tween = TweenInfo.new(30/Weather.timeScaleDivisor, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
 	for i,v in pairs(CloudDescription) do
@@ -113,7 +114,7 @@ function Weather.new()
 		end)
 	end
 	game["Run Service"].Heartbeat:Connect(function()
-		for i,v in pairs(CollectionService:GetTagged("FloatingObject")) do
+		for _,v in pairs(CollectionService:GetTagged("FloatingObject")) do
 			v:PivotTo(CFrame.new(v.WorldPivot.Position + workspace.GlobalWind * Weather.timeScaleDivisor))
 			if Configuration.Debug.destroyItemsOutsideBounds then
 				if not checkIfPartInBounds(v) then
@@ -250,14 +251,15 @@ function Weather:Cloud(CloudTypeName, v2p)
 		local CloudType = CloudTypes[CloudTypeName]
 		if not  CloudType then return end
 		local cloudDuration = CloudType.Duration
-		local model = Instance.new("Model", self.CloudsFolder)
+		local model = Instance.new("Model")
+		model.Parent =  self.CloudsFolder
 		model.ChildRemoved:Connect(function()
 			if #model:GetChildren() == 0 then
 				model:Destroy()
 			end
 		end)
 		model.WorldPivot = CFrame.new(Vector3.new(v2p.x, 100, v2p.y))
-		for i,cldsDesc in pairs(CloudType.Clouds) do
+		for _,cldsDesc in pairs(CloudType.Clouds) do
 			
 			local offset = cldsDesc[1]
 			local heightoffset = cldsDesc[2]
