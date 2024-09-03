@@ -22,7 +22,7 @@ jobs:
       
       - uses: ok-nick/setup-aftman@v0.4.2
       - run: "aftman install"
-      - run: "rojo build -o module.rbxm"
+      - run: "rojo build -o weathermanager.rbxm"
 
       - uses: 'marvinpinto/action-automatic-releases@latest'
         with:
@@ -32,4 +32,4 @@ jobs:
           automatic_release_tag: "latest"
           files: |
             LICENSE.md
-            module.rbxm
+            weathermanager.rbxm
