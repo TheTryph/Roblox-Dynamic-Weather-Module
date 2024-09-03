@@ -101,7 +101,7 @@ function checkIfPartInBounds(part)
 	end
 	return false
 end
-
+-- Creation
 function Weather.new()
 	local self = setmetatable({}, Weather)
 	self.CloudsFolder = Instance.new('Folder', workspace)
