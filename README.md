@@ -1,3 +1,5 @@
 # Dynamic weather module
 
-this is a weather module made by Trypha.
+This is a dynamic weather module built for Roblox.
+
+Refer to the [wiki](https://github.com/TheTryph/Roblox-Dynamic-Weather-Module/wiki) for details.
