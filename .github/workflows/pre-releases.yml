@@ -14,12 +14,8 @@
         steps:
             # ...
             - uses: ok-nick/setup-aftman@v0.4.2
-
-            - name: "install aftman"
-              run: "aftman install"
-
-            - name: "build module"
-              run: "rojo build -o weathermanager.rbxm"
+            - run: "aftman install"
+            - run: "rojo build -o weathermanager.rbxm"
               
     
             - uses: "marvinpinto/action-automatic-releases@latest"
