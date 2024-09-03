@@ -1,0 +1,33 @@
+
+    name: "pre-release"
+    
+    on:
+      push:
+        branches:
+          - "master"
+    
+    jobs:
+      pre-release:
+        name: "Pre Release"
+        runs-on: "ubuntu-latest"
+    
+        steps:
+            # ...
+            - uses: ok-nick/setup-aftman@v0.4.2
+
+            - name: "install aftman"
+              run: "aftman install"
+
+            - name: "build module"
+              run: "rojo build -o weathermanager.rbxm"
+              
+    
+            - uses: "marvinpinto/action-automatic-releases@latest"
+              with:
+                repo_token: "${{ secrets.GITHUB_TOKEN }}"
+                automatic_release_tag: "latest"
+                prerelease: true
+                title: "Development Module Build"
+                files: |
+                    LICENSE.md
+                    weathermanager.rbxm
